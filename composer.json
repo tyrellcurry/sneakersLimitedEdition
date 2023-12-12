@@ -1,0 +1,22 @@
+{
+    "name": "php/e-commerce",
+    "description": "A sample e-commerce page using Twig.",
+    "keywords": [
+        "php",
+        "twig",
+        "e-commerce",
+        "sample"
+    ],
+    "license": "MIT",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Tyrell Curry",
+            "email": "tyrellcurryio@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.3.0",
+        "twig/twig": "^3.0"
+    }
+}

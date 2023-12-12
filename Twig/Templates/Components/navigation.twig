@@ -1,0 +1,65 @@
+<nav>
+  <div class="container">
+    <div class="content">
+      <div class="left">
+        <div class="logo">
+          <img src="../../../images/logo.svg" alt="">
+        </div>
+        <ul>
+          <li>
+            <a href="#">Collections</a>
+          </li>
+          <li>
+            <a href="#">Men</a>
+          </li>
+          <li>
+            <a href="#">Women</a>
+          </li>
+          <li>
+            <a href="#">About</a>
+          </li>
+          <li>
+            <a href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
+      <div class="right">
+        <div id="shoppingcart" class="cart">
+          <img src="../../../images/icon-cart.svg" alt="">
+        </div>
+        <div class="avatar" style="background-image: url('{{ image_avatar }}')">
+        </div>
+      </div>
+    </div>
+    <hr />
+  </div>
+  <div id="cart" class="cartcontainer hidden">
+    <div class="cart">
+      <div class="title">
+        <p>Cart</p>  
+      </div>
+      <hr>
+      <div class="product">
+        <div id="cartempty" class="empty">
+          <p>
+            Your cart is empty.
+          </p>
+        </div>
+        <div id="cartfull" class="full hidden">
+          <div class="top">
+            <div class="left">
+              <img src="" alt="Shoes">
+            </div>
+            <div class="right">
+              <p class="producttitle">TEXT HERE</p>
+              <p class="productcost">$125.00 x 3 <strong>$375.00</strong></p>
+            </div>
+            <div id="deleteCart" class="trash">
+              <img src="../../../images//icon-delete.svg" alt="delete">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

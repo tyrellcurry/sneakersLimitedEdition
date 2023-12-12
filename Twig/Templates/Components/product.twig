@@ -1,0 +1,117 @@
+<section class="product">
+  <div class="left">
+    <div class="mainimage">
+      <img src="{{ product.images[0].src }}" alt="Product Image">
+    </div>
+    <div class="previewimages">
+      {% for index, image in product.images %}
+          <div class="preview {% if loop.first %}selected{% endif %}">
+              <img src="{{ image.src }}" alt="{{ image.alt }}">
+          </div>
+      {% endfor %}  
+    </div>
+  </div>
+  <div class="right">
+    <div class="container">
+      <div class="content">
+        <h6>Sneaker Company</h6>
+        <h1>{{ products.shoes.name }}</h1>
+        <p>
+          {{ products.shoes.description }}
+        </p>
+        <div class="price">
+          {% if products.shoes.discount is empty %}
+          <p class="total">{{ products.shoes.original_price }}</p>
+          {% else %}
+          <div class="row">
+            <p class="total">${{ products.shoes.original_price * (products.shoes.discount / 100) }}.00</p>
+            <p class="discount">{{ products.shoes.discount }}%</p>
+          </div>
+          <p class="original">{{ products.shoes.original_price }}</p>
+          {% endif %}
+        </div>
+      </div>
+      <div class="addtocart">
+        <div class="counter">
+          <div class="minus">
+            <img src="../../../images/icon-minus.svg" alt="">
+          </div>
+          <div class="number">1</div>
+          <div class="addition">
+            <img src="../../../images/icon-plus.svg" alt="">
+          </div>
+        </div>
+        <button class="button">
+          <img src="../../../images/icon-cart.png" alt="Cart"> Add to cart
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Product gallery
+const previewImages = document.querySelectorAll('.preview');
+const mainImage = document.querySelector('.mainimage');
+const itemTotal = document.querySelector('.product .number');
+const totalMinus = document.querySelector('.product .minus');
+const totalAddition = document.querySelector('.product .addition');
+const addToCartBtn = document.querySelector('.addtocart .button');
+const checkoutImg = document.querySelector('.full img');
+const cart = document.querySelector('#cart');
+const cartEmpty = document.querySelector('#cartempty');
+const cartFull = document.querySelector('#cartfull');
+const navCartBtn = document.querySelector('#shoppingcart');
+const deleteCart = document.querySelector('#deleteCart');
+
+
+let itemTotalCounter = 1;
+
+totalMinus.addEventListener('click', () => {
+  if(itemTotalCounter > 1){
+    itemTotalCounter -= 1;
+    itemTotal.innerHTML = itemTotalCounter;
+  }
+})
+totalAddition.addEventListener('click', () => {
+  itemTotalCounter += 1;
+  itemTotal.innerHTML = itemTotalCounter;
+})
+
+addToCartBtn.addEventListener('click', () => {
+  const cartTitle = document.querySelector('.cartcontainer .full .producttitle');
+  const cartCost = document.querySelector('.cartcontainer .full .productcost');
+  const productTotal = parseFloat(document.querySelector('.price .total').innerHTML.replace('$', ''));
+  cartTitle.innerHTML = '{{ products.shoes.name }}';
+  cartCost.innerHTML = `$${productTotal} x ${itemTotalCounter} <strong>$${productTotal * itemTotalCounter}</strong>`
+  cartFull.classList.remove('hidden');
+  cartEmpty.classList.add('hidden');
+  if(cart.classList.contains('hidden')) {
+    cart.classList.remove('hidden');
+  }
+})
+
+deleteCart.addEventListener('click', () => {
+  cartFull.classList.add('hidden');
+  cartEmpty.classList.remove('hidden');
+})
+
+navCartBtn.addEventListener('click', () => {
+  cart.classList.toggle('hidden');
+})
+
+checkoutImg.setAttribute('src', '{{ product.images[0].src }}');
+
+previewImages.forEach(image => {
+  image.addEventListener('click', () => {
+    previewImages.forEach(image => {
+      image.classList.remove('selected');
+    })
+    mainImage.querySelector('img').setAttribute('src', image.querySelector('img').getAttribute('src'));
+    console.log(image.querySelector('img').getAttribute('src'));
+    image.classList.add('selected');
+  })
+})
+
+
+</script>
