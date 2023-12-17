@@ -96,6 +96,6 @@ I would like to explore the Twig framework more in depth, as well as set up a ba
 
 ### Author
 
-- Website - [Tyrell Curry](https://www.your-site.com)
+- Website - [Tyrell Curry](https://www.tyrellcurry.io)
 - Linkedin - [Tyrell Curry](https://www.linkedin.com/feed/)
 - Twitter - [@Tyrell_io](https://twitter.com/Tyrell_io)
