@@ -1,6 +1,6 @@
 # Sneakers | Fall Limited Edition ✨ Built with PHP (Twig)
 
-This is an interactive and dynamic product page showcasing the power of the Twig framework: [Twig](https://twig.symfony.com/).
+This is an interactive and dynamic product page showcasing the power of the PHP framework: [Twig](https://twig.symfony.com/).
 
 ## Table of contents
 
@@ -38,7 +38,8 @@ Users should be able to:
 - HTML5
 - CSS3
 - JS (ES6)
-- PHP Twig
+- PHP 
+- Twig
 - Flexbox
 
 ### What I learned
